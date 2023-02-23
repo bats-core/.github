@@ -1,0 +1,15 @@
+name: Test
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with: { cache: npm }
+      - run: npm cit
+        env:
+          BATS_LIB_PATH: ${{ github.workspace }}/node_modules
