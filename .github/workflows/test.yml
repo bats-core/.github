@@ -3,7 +3,7 @@ on:
   workflow_call:
 
 jobs:
-  test:
+  npm-cit:
     runs-on: ubuntu-latest
 
     steps:
