@@ -1,9 +1,16 @@
 name: Test
 on:
   workflow_call:
+    inputs:
+      npm:
+        description: "Run npm-test job."
+        default: true
+        required: false
+        type: boolean
 
 jobs:
-  npm-cit:
+  npm-test:
+    if: inputs.npm
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
