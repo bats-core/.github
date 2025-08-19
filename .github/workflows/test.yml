@@ -1,15 +1,25 @@
 name: Test
 on:
   workflow_call:
+    inputs:
+      npm:
+        description: "Run npm-test job."
+        default: true
+        required: false
+        type: boolean
 
+permissions: { contents: read }
 jobs:
-  npm-cit:
-    runs-on: ubuntu-latest
-
+  npm-test:
+    if: inputs.npm
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix: { os: [ubuntu-latest, macOS-latest] }
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with: { cache: npm }
+      - uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with: { egress-policy: audit }
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: npm cit
         env:
           BATS_LIB_PATH: ${{ github.workspace }}/node_modules
