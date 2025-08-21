@@ -1,3 +1,9 @@
+<!--
+This is a default code of conduct that applies to the entire bats-core organization.
+It may be overridden by a repo-specific code of conduct.
+https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file
+-->
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge

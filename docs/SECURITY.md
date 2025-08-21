@@ -1,3 +1,9 @@
+<!--
+This is a default security policy that applies to the entire bats-core organization.
+It may be overridden by a repo-specific security policy.
+https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file
+-->
+
 # Security Policy
 
 ## Supported Versions
